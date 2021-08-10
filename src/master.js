@@ -54,7 +54,7 @@ async function init() {
 				const attemptsPerSecond = totalAttempts / computationTimeInSeconds;
 				const secondsRemaining = (totalCombinations - totalAttempts) * (1 / attemptsPerSecond);
 				const hoursRemaining = secondsRemaining / 60 / 60;
-				console.log(`${totalAttempts}/${totalCombinations} running at ${attemptsPerSecond} attempts/second - finish in ${hoursRemaining.toFixed(1)} hours`);
+				console.log(`${totalAttempts}/${totalCombinations} running at ${attemptsPerSecond.toFixed(1)} attempts/second - finish in ${hoursRemaining.toFixed(1)} hours`);
 				if (found) {
 					console.log(`Somehow we did it boys! ${privateKey}`);
 					console.log(mnemonic);
