@@ -1,11 +1,9 @@
-import {HDNode} from '@ethersproject/hdnode';
 import {wordlists} from 'ethers';
 import calculateFactors from './calculateFactors.js';
 import {computeAddress} from './ethers/computeAddress.js';
 import fromSeed from './ethers/fromSeed.js';
 import {isMnemonicValid} from './ethers/isMnemonicValid.js';
 import {mnemonicToSeed} from './ethers/mnemonicToSeed.js';
-import {SigningKey} from './ethers/signingKey.js';
 import indexToSubIndices from './indexToSubIndices.js';
 
 const defaultPath = "m/44'/60'/0'/0/0";
@@ -270,7 +268,7 @@ async function work(config) {
 		// const privateKey = hdNode.privateKey;
 		// found = hdNode.address.toLowerCase() === targetPublicAddress;
 
-		const {privateKey,publicKey} = fromSeed(seed, defaultPath);
+		const {privateKey, publicKey} = fromSeed(seed, defaultPath);
 		const address = computeAddress(publicKey);
 		found = address.toLowerCase() === targetPublicAddress;
 
@@ -291,7 +289,7 @@ async function work(config) {
 			await setTimeoutPromise(1);
 		}
 	}
-	inform(found, newAttempts, mnemonic, privateKey);
+	inform(found, newAttempts, mnemonic);
 }
 
 process.send('ready');
